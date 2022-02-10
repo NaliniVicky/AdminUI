@@ -1,0 +1,31 @@
+<div class="container">
+    <h5 class="header"><i class="fa fa-edit"></i>&nbsp;Edit Details</h5>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" [(ngModel)]="data.name">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Role</mat-label>
+                <input matInput type="text" [(ngModel)]="data.role">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" [(ngModel)]="data.email">
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-dialog-actions align="center">
+                <button mat-flat-button class="save" [mat-dialog-close]="true" cdkFocusInitial>Save</button>&nbsp;
+            <!--     <button mat-button class="cancel" (click)="NoClick()">Cancel</button> -->
+            </mat-dialog-actions>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+th{
+    color:black;
+    font-size: large;
+}
+.full-width{
+    width:100%;
+}
+.bg-red{
+    color:white;
+    background: red;
+    border-radius: 15px;
+    height: fit-content;
+    top: 12px;
+    position: relative;
+    border: none;
+    filter: drop-shadow(2px 4px 6px black);
+}
+.edit{
+color:cornflowerblue;
+}
+.delete{
+    color:red;
+}
+.display{
+    display: none;
+}
+.bg-grey{
+background: grey;
+color:white;
+}
