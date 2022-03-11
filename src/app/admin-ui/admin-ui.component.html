@@ -4,7 +4,7 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
     </mat-form-field>
     <div>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="full-width">
+        <table id="mattable" mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="full-width">
             <!-- checkbox Column -->
             <ng-container matColumnDef="select">
                 <th mat-header-cell *matHeaderCellDef [ngClass]="isMasterSel ? 'bg-grey':''"> <input type="checkbox"
@@ -68,9 +68,6 @@
             </tr>
         </table>
         <div class='d-flex justify-content-center p-2'>
-            <!--    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-                (pageChange)="refreshCountries(adminData)">
-            </ngb-pagination>  -->
             <button mat-flat-button [ngClass]="collectionSize>0 ? 'pad0 mar0 bg-red': 'display'"
                 (click)="deleteMultiple()">{{collectionSize}} Delete Selected</button>
             <mat-paginator [length]="resultLength" (page)="pageEvent = adminEvent($event)"
