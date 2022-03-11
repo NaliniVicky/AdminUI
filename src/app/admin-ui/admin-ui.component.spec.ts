@@ -7,8 +7,8 @@ import { MatInputHarness } from '@angular/material/input/testing';
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { MatPaginatorHarness } from '@angular/material/paginator/testing';
-import {MatTableHarness} from '@angular/material/table/testing';
-import { By } from '@angular/platform-browser';
+import { MatTableHarness } from '@angular/material/table/testing';
+
 describe('AdminUiComponent', () => {
   let component: AdminUiComponent;
   let fixture: ComponentFixture<AdminUiComponent>;
@@ -54,6 +54,6 @@ describe('AdminUiComponent', () => {
     const tables = await loader.getAllHarnesses(MatTableHarness);
     expect(tables.length).toBe(0);
   });
-  
+
 });
 
