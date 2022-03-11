@@ -9,7 +9,7 @@ export class AdminService {
 
   constructor(private http:HttpClient) { }
   getAdminDetails(): Observable<any> {
-    return this.http.get<any>(" https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json").pipe(
+    return this.http.get<any>("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json").pipe(
       tap(_ => this.log('fetch Admin info')),
       catchError(this.handleError("getAdmin", ""))
     );
