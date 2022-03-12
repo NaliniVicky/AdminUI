@@ -20,9 +20,9 @@ export class AdminUiComponent implements OnInit {
   adminData!: Array<Admin>;
   collectionSize!: number;
   dataSource!: MatTableDataSource<Admin>;
-  isMasterSel: boolean = false;
+  isAdminSelect: boolean = false;
   adminSelected: Array<Admin> = [];
-  resultLength!: number;
+  adminDataLength!: number;
   constructor(private service: AdminService, private dialog: MatDialog,private cdr: ChangeDetectorRef) {
   }
   displayedColumns: string[] = ['select', 'id', 'name', 'role', 'email', 'action'];
@@ -69,7 +69,7 @@ export class AdminUiComponent implements OnInit {
       let checkEnd = checkStart + pageSize;
       for (var i = checkStart; i < checkEnd; i++) {
         if (i < this.adminData.length)
-          this.adminData[i].select = this.isMasterSel;
+          this.adminData[i].select = this.isAdminSelect;
       }
     }
     else {
@@ -77,7 +77,7 @@ export class AdminUiComponent implements OnInit {
       let checkEnd = checkStart + 10;
       for (var i = checkStart; i < checkEnd; i++) {
         if (i < this.adminData.length)
-          this.adminData[i].select = this.isMasterSel;
+          this.adminData[i].select = this.isAdminSelect;
       }
     }
     this.getCheckedItemList();
@@ -92,7 +92,7 @@ export class AdminUiComponent implements OnInit {
   }
 
   getAdmin(isSelected: boolean, id: string, element: Admin) {
-    this.isMasterSel = false;
+    this.isAdminSelect = false;
     if (this.adminSelected.length > 0) {
       this.adminIsSelected(isSelected, id, element);
     }
@@ -103,7 +103,7 @@ export class AdminUiComponent implements OnInit {
   }
 
   adminIsSelected(isSelected: boolean, id: string, element: Admin) {
-    let select = false;
+    let isAlreadySelected = false;
     switch (isSelected) {
       case false:
         this.adminSelected = [];
@@ -116,9 +116,9 @@ export class AdminUiComponent implements OnInit {
       case true:
         this.adminSelected?.forEach(data => {
           if (data.id === id)
-            select = true;
+          isAlreadySelected = true;
         })
-        if (select === false) {
+        if (isAlreadySelected === false) {
           this.adminSelected.push(element);
         }
         break;
@@ -159,7 +159,7 @@ export class AdminUiComponent implements OnInit {
       }
       this.adminSelected = [];
       this.tableData();
-      this.isMasterSel = false;
+      this.isAdminSelect = false;
     }
     if (this.collectionSize)
       this.collectionSize = 0;
@@ -168,7 +168,7 @@ export class AdminUiComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.adminData);
     this.cdr.detectChanges();
     this.dataSource.paginator = this.paginator;
-    this.resultLength = this.adminData.length;
+    this.adminDataLength = this.adminData.length;
   }
 }
 
